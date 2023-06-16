@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home 3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1c1c1c;
+      color: #ffffff;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 50%;
+      height: 30px;
+      font-size: 14px;
+      padding: 5px;
+      border: 1px solid #333333;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+      background-color: #333333;
+      color: #ffffff;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    .predict-button {
+      display: block;
+      margin: 20px auto;
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result-row {
+      text-align: center;
+    }
+
+    .result-row h3 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+
+
+
+  <h1>Breast Cancer Prediction</h1>
+  <center>
+  <form action="{% url 'result' %}" method="get">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="n1">  Mean radius</label>
+      <input type="text" name="n1" id="n1">
+    </div>
+    <div class="form-group">
+      <label for="n2">Mean texture</label>
+      <input type="text" name="n2" id="n2">
+    </div>
+  
+    <div class="form-group">
+      <label for="n3">Mean perimeter</label>
+      <input type="text" name="n3" id="n3">
+    </div>
+    <div class="form-group">
+      <label for="n4">
+        Mean area</label>
+      <input type="text" name="n4" id="n4">
+    </div>
+    <div class="form-group">
+      <label for="n5">Mean smoothness</label>
+      <input type="text" name="n5" id="n5">
+    </div>
+    <div class="form-group">
+      <label for="n6">Mean compactness</label>
+      <input type="text" name="n6" id="n6">
+    </div>
+    <div class="form-group">
+      <label for="n7">Mean concavity</label>
+      <input type="text" name="n7" id="n7">
+    </div>
+    <div class="form-group">
+      <label for="n8">Mean concave points</label>
+      <input type="text" name="n8" id="n8">
+    </div>
+    <div class="form-group">
+      <label for="n9">Mean symmetry</label>
+      <input type="text" name="n9" id="n9">
+    </div>
+    <div class="form-group">
+      <label for="n10">
+        Mean fractal dimension</label>
+      <input type="text" name="n10" id="n10">
+    </div>
+    
+    <div class="form-group">
+      <label for="n11">
+        radius error</label>
+      <input type="text" name="n11" id="n11">
+    </div>
+    <div class="form-group">
+      <label for="n12">texture error</label>
+      <input type="text" name="n12" id="n12">
+    </div>
+    <div class="form-group">
+      <label for="n13">perimeter error</label>
+      <input type="text" name="n13" id="n13">
+    </div>
+    <div class="form-group">
+      <label for="n14">area error</label>
+      <input type="text" name="n14" id="n14">
+    </div>
+    <div class="form-group">
+      <label for="n15">smoothness error</label>
+      <input type="text" name="n15" id="n15">
+    </div>
+    <div class="form-group">
+      <label for="n16">
+        compactness error</label>
+      <input type="text" name="n16" id="n16">
+    </div>
+    <div class="form-group">
+      <label for="n17">concavity error</label>
+      <input type="text" name="n17" id="n17">
+    </div>
+    <div class="form-group">
+      <label for="n18">concave points error</label>
+      <input type="text" name="n18" id="n18">
+    </div>
+    <div class="form-group">
+      <label for="n19">symmetry error
+      </label>
+      <input type="text" name="n19" id="n19">
+    </div>
+    <div class="form-group">
+      <label for="n20">fractal dimension error</label>
+      <input type="text" name="n20" id="n20">
+    </div>
+    <div class="form-group">
+      <label for="n21">
+        worst radius</label>
+      <input type="text" name="n21" id="n21">
+    </div>
+    <div class="form-group">
+      <label for="n22">worst texture</label>
+      <input type="text" name="n22" id="n22">
+    </div>
+    <div class="form-group">
+      <label for="n23">worst perimeter</label>
+      <input type="text" name="n23" id="n23">
+    </div>
+    <div class="form-group">
+      <label for="n24">worst area</label>
+      <input type="text" name="n24" id="n24">
+    </div>
+    <div class="form-group">
+      <label for="n25">worst smoothness</label>
+      <input type="text" name="n25" id="n25">
+    </div>
+    <div class="form-group">
+      <label for="n26">worst compactness</label>
+      <input type="text" name="n26" id="n26">
+    </div>
+    <div class="form-group">
+      <label for="n27">worst concavity</label>
+      <input type="text" name="n27" id="n27">
+    </div>
+    <div class="form-group">
+      <label for="n28">worst concave points</label>
+      <input type="text" name="n28" id="n28">
+    </div>
+    <div class="form-group">
+      <label for="n29">worst symmetry</label>
+      <input type="text" name="n29" id="n29">
+    </div>
+    <div class="form-group">
+      <label for="n30">worst fractal dimension</label>
+      <input type="text" name="n30" id="n30">
+    </div>
+    
+    <input type="submit" class="predict-button" value="PREDICT" />
+  </form>
+</center>
+  <div class="row result-row box_1">
+    <h3>{{ result2 }}</h3>
+  </div>
+</body>
+</html>
